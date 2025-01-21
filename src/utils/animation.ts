@@ -1,7 +1,6 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { Group } from "three";
-import  Timeline  from "gsap";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -10,6 +9,7 @@ type GsapTarget = string | Element | HTMLElement; // Adjust based on your use ca
 type AnimationProps = gsap.TweenVars; // GSAP's TweenVars for animation properties
 type ScrollProps = ScrollTrigger.Vars; // ScrollTrigger's Vars for scroll properties
 
+// Function to animate with GSAP
 export const animateWithGsap = (
   target: GsapTarget,
   animationProps: AnimationProps,
@@ -26,15 +26,7 @@ export const animateWithGsap = (
   });
 };
 
-// Define a type for rotationState
-type RotationState = {
-  rotation: number;
-};
-
-// Define the animateWithGsapTimeline function
-
-
-// Update types for props
+// Function to animate with GSAP timeline
 export const animateWithGsapTimeline = (
   timeline: gsap.core.Timeline,
   rotationRef: React.MutableRefObject<Group>, // Correct type
@@ -68,4 +60,3 @@ export const animateWithGsapTimeline = (
     "<"
   );
 };
-

@@ -10,12 +10,6 @@ Title: Apple iPhone 15 Pro Max Black
 import { useGLTF, useTexture } from '@react-three/drei'
 import { useEffect,  } from 'react';
 import * as THREE from "three";
-import { GroupProps } from "@react-three/fiber";
-
-interface CustomGroupProps extends GroupProps {
-  item: { title: string; color: string[]; img: string }; // Replace with your actual `item` type
-  size: [number, number, number];
-}
 
 
 interface GLTFResult extends THREE.Group {
@@ -88,13 +82,17 @@ interface GLTFResult extends THREE.Group {
     HGhEhpqSBZRnjHC: THREE.Material;
   };
 }
-
-type ModelProps = JSX.IntrinsicElements['group']
+type ModelProps = JSX.IntrinsicElements['group'] & {
+  item: {
+    img: string;
+    color: [string, string, string];
+  };
+};
 
 function Model(props: ModelProps) {
   const { nodes, materials } = useGLTF('/models/scene.glb') as unknown as GLTFResult;
 
-  const texture = useTexture(props.item.img)
+  const texture = useTexture(props.item.img);
 
   useEffect(() => {
     Object.entries(materials).forEach(([key, material]) => {

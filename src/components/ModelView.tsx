@@ -22,7 +22,6 @@ const ModelView: React.FC<ModelViewProps> = ({
   gsapType,
   controlRef,
   setRotationState,
-  size,
   item,
 }) => {
   return (
@@ -57,7 +56,7 @@ const ModelView: React.FC<ModelViewProps> = ({
           <Iphone
             scale={index === 1 ? [15, 15, 15] : [17, 17, 17]}
             item={item} // Prop passed here is valid
-            size={size} // Prop passed here is valid
+            // Prop passed here is valid
           />
         </Suspense>
       </group>
